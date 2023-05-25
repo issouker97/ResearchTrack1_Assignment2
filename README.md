@@ -63,7 +63,6 @@ Each of these nodes is specified by stating the package name "assignment 2 2022"
 
 	
 ```xml
- def __init__(self):
  <?xml version="1.0"?>
 <launch>
     <include file="$(find assignment_2_2022)/launch/sim_w1.launch" />
