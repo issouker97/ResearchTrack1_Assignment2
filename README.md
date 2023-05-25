@@ -1,119 +1,53 @@
-RESEARCH TRACK 1  ASSIGNMENT 2
+Research Track 1 :  Assignment Undertaken Number #2
 ================================
 
-## Goal Of The Assignment
+## Aim of The Assignment
 
-This assignment involves creating a package for a robot simulation in Gazebo and Rviz. 
-The aim of this assignment is to create a new ROS package which we will develope 3 nodes: 
+On this repository, I have the privilege to share with you my modest response to the Research Track's second assignment, wherein we are tasked to build a package for a robot simulation in Gazebo and Rviz. Therefore, I did create a new ROS package, for which we will develop 3 nodes to perform specific tasks as follows: 
 
-1. A node that implements an action client, allowing the user to **set a target (x, y) or to cancel it**. The node
-also **publishes the robot position and velocity** as a custom message (x,y, vel_x, vel_y), by relying on the values
-published on the topic /odom.
-2. A service node that, when called, prints the number of goals reached and cancelled.
-3. A node that subscribes to the robot’s position and velocity (using the custom message) and prints the
-**distance of the robot from the target and the robot’s average speed**. Use a parameter to set how fast the
-node publishes the information.
-4. Also create a **launch file** to start the whole simulation. Set the value for the **frequency** with which node (c) publishes
-the information.
+1. An action client node that permits the user to set or cancel a target (x, y) and also publishes the robot's position and velocity as a custom message  (x, y, vel x, vel y), by using the values published on the subject /odom.
 
-<p align="center" width="100%">
-    <img width="48%" height="350" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
-    <img width="48%" height="350" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">
-    
-</p>
+2. A service node that when we activate, it will print the number of target reached and cancelled.
+ 
+3. A node for printing both the distance that separates the robot from the target and its average speed. In addition, It subscribes to the robot’s position and speed, this will be through using a custom message. A parameter will be used to set the frequency of publishing the data. 
 
+4. In order to run all the simulation together, **a launch file** was created for this purpose. Set the value for the **frequency** of the information published by node 3
 ---------------------------------
-## First Node: Action (action_user.py)
+## Details About The  First Node: Action (action_user.py)
 
 The first node of our package creates a publisher "pub" that publishes a custom message "**Posxy_velxy**" on the topic "/posxy_velxy". The custom message contains four fields "**msg_pos_x**", "**msg_pos_y**", "**msg_vel_x**", "**msg_vel_y**" that represent the position and velocity of the robot.
 
-```python
- def publisher(msg):
-    global pub
-    # get the position information111
-    pos = msg.pose.pose.position
-    # get the velocity information
-    velocity = msg.twist.twist.linear
-    # custom message
-    posxy_velxy = Posxy_velxy()
-    # assign the parameters of the custom message
-    posxy_velxy.msg_pos_x = pos.x
-    posxy_velxy.msg_pos_y = pos.y
-    posxy_velxy.msg_vel_x = velocity.x
-    posxy_velxy.msg_vel_y = velocity.y
-    # publish the custom message
-    pub.publish(posxy_velxy)
-```
-The node also creates a subscriber "sub_from_Odom" that subscribes to the topic "/odom", which publishes the Odometry message. The callback function "publisher" is called every time a message is received on the topic "/odom". This function extracts the position and velocity data from the Odometry message and creates an instance of the custom message. The function then assigns the position and velocity data to the corresponding fields of the custom message and publishes the message on the topic "/posxy_velxy".
+In addition, the node creates a subscriber "sub_from_Odom" that subscribes to the topic "/odom", that publishes the Odometry message. Whenever a message is received on the topic "/odom", the callback function "publisher" is called.  This function has a role to : 
+-	Generates an instance of the custom message and get both the position and velocity data from the odometry message.
+-	Following this,  it assigns the position and velocity data to the corresponding fields of the custom message and publishes the message on the topic "/posxy_velxy"
 
-<p align="center" width="100%">
-    <img width="800" height="250" src="https://user-images.githubusercontent.com/58879182/213940945-5b4c75b8-79c5-45ce-9602-caa3081905f1.png">
-</p>
-
-
-
-Finally the "action_client()" funtion creates an action client and waits for the action server "/reaching_goal" to start. It enters a while loop that prompts the user to enter the target position or type "c" to cancel the goal. If the user enters "c", the action client cancels the goal and sets the status_goal to false. If the user inputs a target position, the function converts the inputs from strings to floats, creates a goal with the target position and sends it to the action server(Planning.action). It also sets status_goal to true.
-It's a simple implementation of action client, it sends a goal to the action server and waits for the result of the goal, it could be an error, a success, or a cancelation. The user can interact with the client, setting a goal or canceling it.
-
-<p align="center" width="100%">
-    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
-</p>
-
-### Flowchart of the action_user.py
-
-<p align="center" width="100%">
-    <img width="80%" src="https://user-images.githubusercontent.com/58879182/214115689-40ca2b9f-a117-4484-ab77-335498e31adc.png">
-</p>
-
+Last but not least, creating a action client by the "action_client()" function and waiting for the action server "/reaching goal" starting the process. There will be then a while loop run with two choices : 
+-	The first choice is to enter the target position, which means if the user inputs the target position, this function changes the inputs from strings to floats, then creates a goal with the target position and sends it to the action server(Planning.action). Moreover, status_goal is set to true. A target is transmitted to the action server using a straightforward action client implementation, and the target's outcome, which may be an error, a success, or a cancelation, is then awaited.
+-	On the other hand, cancelling the target with pressing on “c”. in this case, the action client cancels the target and sets the status_goal to false.
 --------------------------------------------------------------------------------------------------------------------------------------------------
-## Second Node: Service (goal_service.py)
+## Details About The Second Node: Service (goal_service.py)
 
-The second node creates a ROS service that listens for requests on the "goal_service" topic, and responds with the number of goals reached and cancelled. It also subscribes to the "/reaching_goal/result" topic to receive messages about the status of goals and updates the counters for goals reached and cancelled accordingly. When the service is called, it returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
+This node builds a ROS service that has a role to :
+-       reply to the questions, of how many attained and cancelled goals,  on the "goal service" topic. 
+-	refreshe the counters about the number  of goals attained and cancelled in accordance by subscribing to the topic "/reaching goal/result" and receiving messages to enquire about goal status.
+-	Each time the service is called, the current values of goal reached/cancelled are returned in a goal rcResponse message.
 
-<p align="center" width="100%">
-    <img width="800" height="250" src="https://user-images.githubusercontent.com/58879182/213945125-df4fc75e-a79e-40b6-813d-e3963bbc4f50.png">
-</p>
-
-It initializes a ROS node called "goal_service" and creates an instance of the Service class. This creates the service, which listens for requests on the "goal_service" topic, and a subscriber to the "/reaching_goal/result" topic. When a request is received on the "goal_service" topic, the data method is called, which returns a goal_rcResponse message containing the current values of goal_reached and goal_cancelled.
-
-When a message is received on the "/reaching_goal/result" topic, the result_callback method is called. This method examines the status (when robot moving: status = 1, when robot target cancelled: status = 2 and when robot reached the target: status = 3) of the goal, which is contained within the message, and increments the appropriate counter, either goal_cancelled or goal_reached. To check the status "rostopic echo /reaching_goal/status" can be run.
-
-<p align="center" width="100%">
-    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946558-6baa0529-c805-478d-bbfa-5d8cf2a23401.png">
-    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946559-fb0281e6-65eb-4569-b5b9-347fece81313.png">
-    <img width="32%" src="https://user-images.githubusercontent.com/58879182/213946570-c6f54c7b-8104-4759-9046-0e861b1b48c9.png">
-</p>
+The result callback method is called whenever a message on the "/reaching goal/result" topic is received. This method looks at the message's goal's status (while the robot is moving, status is 1, when the target is cancelled, status is 2, and when the robot reaches the target, status is 3), and it increases the relevant counter, either goal cancelled or goal reached. Run "rostopic echo /reaching goal/status" to see the current situation.
 
 ----------------------------------------------------------------------------------
 
-## Third Node: Print Distance and Average Velociity (print_dis_avgvel.py)
+## Details About The Third Node: Printing both  Distance and Average Velociity (print_dis_avgvel.py)
 
-The third node prints out information about a robot's distace from target and average velocity. The node gets the publish frequency parameter from ROS parameters, which is used to determine how often the information is printed. It also initializes a variable to keep track of the last time the information was printed and creates a subscriber to the '/posxy_velxy' topic, which i  to containining messages of robot's curren x,y positions and x,y velocities.
+This node has the role to print out data on a robot's average velocity and distance from the target. The publish frequency parameter, which controls how frequently the information is printed, is obtained by the node from ROS parameters. In addition, it initializes a variable to keep track the recent data printed and creates a subscriber to the '/posxy_velxy' topic, which includes messages of robot's updated (x,y) positions and (x,y) velocities
 
-```python
- def __init__(self):
-        # Get the publish frequency parameter
-        self.freq = rospy.get_param("frequency")
-
-        # Last time the info was printed
-        self.printed = 0
-
-        # Subscriber to the position and velocity topic
-        self.sub_pos = rospy.Subscriber("/posxy_velxy", Posxy_velxy, self.posvel_callback)
-```
-The node first gets the desired position of the robot, and the actual position of the robot from the message received. It then calculates the distance between the desired and actual positions using the math.dist() function. It also gets the actual velocity of the robot from the message and calculates the average speed using the velocity components from the message. Finally, it prints the distance and average speed information using the rospy.loginfo() function, and updates the last printed time variable.
-
-<p align="center" width="100%">
-    <img width="60%" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
-</p>
-
+There is function called math.dist() function, which is used to calculate the distance between the desired position of the robot and its real-time position that the node gets respectively from the message received. The same thing happens with the average velocity, the node receive the velocity component of both desired and real-time  speed and calculate the average. At the end, printing results, distance and average velocity, will be through using the rosp.loginfo() function and make a refresh to the recent reported time variable.
 
 -------------------------------------
-## Creating Launch file (assignment2.launch)
+## How To Create Launch File (assignment2.launch)
 
-The ROS launch file is used to start multiple nodes and set parameters at once. The launch file is written in XML and uses the <launch> tag as the root element.The launch file starts by including another launch file, "sim_w1.launch", which is already located in our package to run Gazebo and Rviz simulators and environment related nodes. Then, it sets two parameters "des_pos_x" and "des_pos_y" with values 0.0 and 1.0 respectively. These parameters used by other nodes to determine the desired position of the robot.
+Running the Launch file makes multiple nodes start at the same time with adjusting parameters. The launch file is written in XML and uses the tag as the root element. The launch file runs by including another launch file, "sim_w1.launch", which is already located in our package to run Gazebo and Rviz simulators and environment related nodes. Afterwards, it sets two parameters "des_pos_x" with values 0.0  and "des_pos_y" with values 1.0. These parameters used by other nodes to determine the desired position of the robot.
 
-Then we set a parameter "frequency" with a value of 1.0. This parameter used by the node "print_dis_avgvel.py" to determine how often the distance and average velocity information should be printed.
+In order to set how many times both the distance and average velocity data should be printed, we just need to set the parameter **frequency** used by the node "print_dis_avgvel.py" on 1.0.
 
 After that, it starts nodes using the <node> tag, these nodes are:
 
@@ -124,7 +58,7 @@ After that, it starts nodes using the <node> tag, these nodes are:
   +  "goal_service.py"
   +  "print_dis_avgvel.py"
 
-Each of these nodes is defined by specifying the package name "assignment_2_2022" where they reside, the type of the file, and the name of the node. The last two nodes are run with the additional parameter output="screen" and launch-prefix="xterm -hold -e" respectively, which causes the output of these nodes to be printed to the screen in a new terminal window.
+Each of these nodes is specified by stating the package name "assignment 2 2022" in which it resides, the file type, and the node name. The final two nodes are launched with the extra parameters output="screen" and launch-prefix="xterm -hold -e," which force the output of these nodes to be printed to the screen in a new terminal window.
 	
 
 	
@@ -152,7 +86,7 @@ This launch file allows to start all the necessary nodes for the application and
 ------------------------------------
 ## Installation
 
-First of all before running the program it is required to install the xterm libray. Open a terminal window and run the following command to install the xterm package, this library helps us to print outputs of the nodes in a new terminal window :
+As a first step, It’s preferable to install the xterm library, this will help us to print outputs of the nodes in a new terminal window:
 
 ```command
 	sudo apt-get install xterm -y
@@ -173,7 +107,7 @@ After the package has been built successfully, finally, we can launch the simula
 	
 ---------------------------------
 
-## How To Run The Simulation
+## The Simulation Time :
 The launch file for the assignment can be found in the "launch" folder within the "assignment_2_2022" directory. To start the simulation, use the following command: 
 
 ```command
@@ -181,78 +115,19 @@ The launch file for the assignment can be found in the "launch" folder within th
 ```
 Upon successful launch, four screens should appear: one for inputting target coordinates (action_user.py), one for displaying the distance and average velocity of the robot (print_dis_avgvel.py), and two for the Gazebo and Rviz visualization environments.
 	
-<p align="center" width="100%">
-    <img width="24%" height="200" src="https://user-images.githubusercontent.com/58879182/213941409-7911d914-4ef2-48ae-b2bb-a1432ce44d4f.png">
-    <img width="24%" height="200" src="https://user-images.githubusercontent.com/58879182/213949410-960707c9-6672-490f-96c1-2d3c2618f1cd.png">
-    <img width="24%" height="200" src="https://user-images.githubusercontent.com/58879182/213936088-b599162b-4c8a-4728-b4f6-830d56a3db6e.png">
-    <img width="24%" height="200" src="https://user-images.githubusercontent.com/58879182/213935894-04b775d8-8a03-4a45-86b4-349905741c48.png">	
-</p>
-
 To run the service node (goal_service.py) that, when called, prints the number of goals reached and cancelled use the following command:
 
 ```command
 	rosservice call /gaol_service
 ```
-or just us the rqt tool to call the service. rqt is a tool in ROS (Robot Operating System) that provides a simple and intuitive GUI (graphical user interface) for debugging and analyzing various aspects of the system. It allows users to view various data streams, such as topics, services, and parameters, as well as perform tasks such as plotting, logging, and debugging. rqt also provides a plugin system which allows developers to create custom plugins for specific tasks. It helps to debug, visualize and inspect the ROS system, also to monitor and control the ROS nodes and topics.
-
-```command
-	rqt
-```
-<p align="center" width="100%">
-    <img width="800" height="300" src="https://user-images.githubusercontent.com/58879182/214059310-a25e8d3d-29fd-4a1f-927f-9e372578cba3.png">
-</p>
-
-To access the Service Caller function in rqt, follow these steps:
-
-    1- Go to the "Plugins" menu
-    2- Select "Services"
-    3- Click on "Service Caller"
-    4- In the Service Caller window, locate the "goal_service"
-    5- Click the "Call" button
-    6- The response window will display the number of targets reached and cancelled.
-	
-<p align="center" width="100%">
-    <img width="800" height="300" src="https://user-images.githubusercontent.com/58879182/214059302-e17e3cf2-5126-48c3-a3e2-119a81665366.png">
-</p>
-	
 ---------------------------------
-
-## Troubleshooting
-
-When running `roslaunch assignment_2_2022 assignment2.launch` file, you may be presented with some errors related to the graphical board of your pc. Try the following steps:
-
-Open the urdf directory and change 43 and 71 lines of the robot2_lazer.gazebo file with the followings:
-* line 43: 
-	```xml 
-	<sensor type="ray" name="head_hokuyo_sensor"> 
-	``` 
-* change with  
-	```xml 
-	<sensor type="gpu_ray" name="head_hokuyo_sensor"> 
-	```
-* line 71: 
-	```xml 
-	<plugin name="hokuyo_node" filename="libgazebo_ros_laser.so"> 
-	``` 
-* change with  
-	```xml 
-	<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so"> 
-	```
-
------------------------------------
 		
-## Conclusion
+## Conclusion :
 
-In this assignment, a package was developed with three nodes: (a) an action client node that allows the user to set a target (x, y) or cancel it, and also publishes the robot's position and velocity as a custom message; (b) a service node that prints the number of goals reached and cancelled; and (c) a node that subscribes to the robot's position and velocity and prints the distance of the robot from the target and the robot's average speed. A launch file was also created to start the whole simulation and set the frequency at which node (c) publishes information. Overall, the package demonstrates the use of action clients, services, and custom messages in ROS and how they can be used to control a robot and monitor its performance. Some possible improvements for this assignment could include:
+The package shows how to handle with action clients, services, custom messages with ROS and their role to control the behaviour of the robot and its performances
 
-1- Using markers in RViz to display the target position and the robot's current position in a more intuitive way, such as by using different colors or shapes to indicate different states (e.g. goal reached, goal canceled).
+1- Adding something as a signal to attract the eye such as colors to distinguish between the position of the robot in real-time and the target position in RViz.
 
-2- Incorporating the robot's orientation in the visualization, such as by using an arrow or a 3D model of the robot to indicate the direction it is facing.
+2- Making an obvious sign, for instance a red flag at the target location would be a good idea in Gazebo environment.
 
-3- Using Gazebo's built-in visualization tools to display the target position in the simulated environment, such as by placing a marker or a flag at the target location.
-
-4- Incorporating a path-planning algorithm to display the robot's planned path to the target, such as by using RViz's "Path" display type.
-
-5- Implementing input validation to ensure that the user can only enter integers, and not other types of input such as floating point numbers or characters. Providing feedback to the user if an invalid input is entered, such as by displaying an error message or highlighting the input field in red.
-
-6- Adding a feature to check if the input value is within a certain range or not, and if not, prompt the user to enter a value within the range.
+3- Building an algorithm to illustrate the path done by the robot to reach the target and optimize its trajectory.
