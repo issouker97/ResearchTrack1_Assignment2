@@ -28,9 +28,9 @@ Last but not least, creating a action client by the "action_client()" function a
 ## Details About The Second Node: Service (goal_service.py)
 
 This node builds a ROS service that has a role to :
--       reply to the questions, of how many attained and cancelled goals,  on the "goal service" topic. 
--	refreshe the counters about the number  of goals attained and cancelled in accordance by subscribing to the topic "/reaching goal/result" and receiving messages to enquire about goal status.
--	Each time the service is called, the current values of goal reached/cancelled are returned in a goal rcResponse message.
+- Reply to the questions, of how many attained and cancelled goals,  on the "goal service" topic. 
+- Refreshe the counters about the number  of goals attained and cancelled in accordance by subscribing to the topic "/reaching goal/result" and receiving messages to enquire about goal status.
+- Each time the service is called, the current values of goal reached/cancelled are returned in a goal rcResponse message.
 
 The result callback method is called whenever a message on the "/reaching goal/result" topic is received. This method looks at the message's goal's status (while the robot is moving, status is 1, when the target is cancelled, status is 2, and when the robot reaches the target, status is 3), and it increases the relevant counter, either goal cancelled or goal reached. Run "rostopic echo /reaching goal/status" to see the current situation.
 
@@ -38,7 +38,7 @@ The result callback method is called whenever a message on the "/reaching goal/r
 
 ## Details About The Third Node: Printing both  Distance and Average Velociity (print_dis_avgvel.py)
 
-This node has the role to print out data on a robot's average velocity and distance from the target. The publish frequency parameter, which controls how frequently the information is printed, is obtained by the node from ROS parameters. In addition, it initializes a variable to keep track the recent data printed and creates a subscriber to the '/posxy_velxy' topic, which includes messages of robot's updated (x,y) positions and (x,y) velocities
+This node has the role to print out data on a robot's average velocity and distance from the target. The publish frequency parameter, which controls how frequently the information is printed, is obtained by the node from ROS parameters. In addition, it initializes a variable to keep track the recent data printed and creates a subscriber to the '/posxy_velxy' topic, which includes messages of robot's updated (x,y) positions and (x,y) velocities.
 
 There is function called math.dist() function, which is used to calculate the distance between the desired position of the robot and its real-time position that the node gets respectively from the message received. The same thing happens with the average velocity, the node receive the velocity component of both desired and real-time  speed and calculate the average. At the end, printing results, distance and average velocity, will be through using the rosp.loginfo() function and make a refresh to the recent reported time variable.
 
@@ -84,7 +84,7 @@ Each of these nodes is specified by stating the package name "assignment 2 2022"
 This launch file allows to start all the necessary nodes for the application and set the required parameters with a single command, instead of running each node and setting each parameter separately. It also allows to run the nodes in a specific order and with specific settings.
 	
 ------------------------------------
-## Installation
+## Installation :
 
 As a first step, It’s preferable to install the xterm library, this will help us to print outputs of the nodes in a new terminal window:
 
@@ -107,7 +107,7 @@ After the package has been built successfully, finally, we can launch the simula
 	
 ---------------------------------
 
-## The Simulation Time :
+## Simulation Time :
 The launch file for the assignment can be found in the "launch" folder within the "assignment_2_2022" directory. To start the simulation, use the following command: 
 
 ```command
