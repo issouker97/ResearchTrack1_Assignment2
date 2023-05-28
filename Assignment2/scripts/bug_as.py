@@ -150,12 +150,12 @@ def normalize_angle(angle):
     return angle
     
 def done():
-     """
-     This is the function to stop the robot when it reaches its goal or cancels its action.
-     It creates a twist message and sets the linear and angular velocities to zero. 
-     It then publishes the twist message to the cmd_vel topic
+    """
+    This is the function to stop the robot when it reaches its goal or cancels its action.
+    It creates a twist message and sets the linear and angular velocities to zero. 
+    It then publishes the twist message to the cmd_vel topic
     
-     """
+    """
     twist_msg = Twist()
     twist_msg.linear.x = 0
     twist_msg.angular.z = 0
