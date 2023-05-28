@@ -10,10 +10,12 @@
 This service node that when we activate, it will print the number of target reached and cancelled.
 
 Subscribes to:
-    - **/reaching_goal/result**: Use to receive status updates on goals.
+
+- **/reaching_goal/result**: Use to receive status updates on goals.
 
 Service:
-    - **goal_service**: Service use to take the number of reached goals and canceled goals.
+
+- **goal_service**: Service use to take the number of reached goals and canceled goals.
 
 Functions:
 
@@ -21,7 +23,7 @@ Functions:
      
     - `result_callback(self, msg)`: This function is a callback method that handles the messages from the result topic. 
        
-     - `data(self, req)`: This function defines a method called data that takes two parameters: self and req. 
+    - `data(self, req)`: This function defines a method called data that takes two parameters: self and req. 
           
 Usage:
    
@@ -45,12 +47,13 @@ import assignment_2_2022.msg  # Import the package message library
 class Service:
     def __init__(self):
         
-    """
-   *This function can send and receive goals*
-     Args:
-          self: Message that contains the status of the goal.
+         """
+         *This function can send and receive goals*
+    
+             Args:
+                 self: Message that contains the status of the goal.
  
-     """
+          """
         
         # Initialize the counters for goals reached and cancelled
         self.goal_cancelled = 0
@@ -65,13 +68,14 @@ class Service:
 
     def result_callback(self, msg):
         
-      """
-     *This function is use for checking the status of the results*
-      Args:
-          self
-          msg: is the taken message 
+        """
+        *This function is use for checking the status of the results*
+     
+             Args:
+                 self
+                 msg: is the taken message 
                
-       """
+          """
         # Get the status of the result from the msg
         status = msg.status.status
 
@@ -84,31 +88,32 @@ class Service:
             self.goal_reached += 1
 
     def data(self, req):
-     """
-     *Used to return an object of type goal_rcResponse*
+        """
+        *Used to return an object of type goal_rcResponse*
      
-      Args:
-          self
-          req 
-       Returns:
-            Service goal_rcResponse.
+            Args:
+                self
+                req 
+            
+	    Returns:
+                Service goal_rcResponse.
                
-       """
+           """
         # Return the response containing the current values of goal_cancelled and goal_reached
         return goal_rcResponse(self.goal_reached, self.goal_cancelled)
 
 
 def main():
  
-     """
+    """
     This is the Main entry point of our node.
 
         - Start to intialize the ROS node with the name "goal_service".
     
         - Create an instance of the Service class.  
     
-         - Keeps the node activated by calling `rospy.spin()`.
-    """
+        - Keeps the node activated by calling `rospy.spin()`.
+     """
     # Initialize the node
     rospy.init_node('goal_service')
 
