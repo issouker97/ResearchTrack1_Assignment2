@@ -1,5 +1,16 @@
 #! /usr/bin/env python
+"""
+.. module:: go_to_point_service
+	:platform: Unix
+	:synopsis: Python module for the go_to_point_service
 
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+This code is a ROS (Robot Operating System) node that implements a simple go-to-point behavior for a robot. 
+It uses laser scan data and odometry information to navigate the robot to a desired position.
+       
+"""
 # import ros stuff
 import rospy
 from sensor_msgs.msg import LaserScan
@@ -41,6 +52,10 @@ pub = None
 
 
 def go_to_point_switch(req):
+    """
+   This is a service callback function that handles the activation/deactivation of the go-to-point behavior.
+    
+    """
     global active_
     active_ = req.data
     res = SetBoolResponse()
@@ -52,6 +67,10 @@ def go_to_point_switch(req):
 
 
 def clbk_odom(msg):
+    """
+   This is a callback function that updates the robot's position and orientation based on the odometry data.
+    
+    """
     global position_
     global yaw_
 
@@ -69,18 +88,30 @@ def clbk_odom(msg):
 
 
 def change_state(state):
+    """
+   This is a function that changes the state of the robot's behavior
+    
+    """
     global state_
     state_ = state
     print ('State changed to [%s]' % state_)
 
 
 def normalize_angle(angle):
+    """
+   This is a function that normalizes an angle to the range [-pi, pi].
+    
+    """
     if(math.fabs(angle) > math.pi):
         angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
     return angle
 
 
 def fix_yaw(des_pos):
+      """
+   This is a function that adjusts the robot's yaw (orientation) to face the desired position.
+    
+    """
     global yaw_, pub, yaw_precision_2_, state_
     desired_yaw = math.atan2(des_pos.y - position_.y, des_pos.x - position_.x)
     err_yaw = normalize_angle(desired_yaw - yaw_)
@@ -104,6 +135,10 @@ def fix_yaw(des_pos):
 
 
 def go_straight_ahead(des_pos):
+      """
+   This is a function that moves the robot straight towards the desired position while maintaining the correct orientation.
+    
+    """
     global yaw_, pub, yaw_precision_, state_
     desired_yaw = math.atan2(des_pos.y - position_.y, des_pos.x - position_.x)
     err_yaw = desired_yaw - yaw_
@@ -129,6 +164,10 @@ def go_straight_ahead(des_pos):
 
 
 def done():
+     """
+   This is a function that stops the robot by publishing a zero velocity command.
+    
+    """
     twist_msg = Twist()
     twist_msg.linear.x = 0
     twist_msg.angular.z = 0
@@ -136,6 +175,10 @@ def done():
                 
 
 def main():
+     """
+   This is the main function
+    
+    """
     global pub, active_
 
     rospy.init_node('go_to_point')
