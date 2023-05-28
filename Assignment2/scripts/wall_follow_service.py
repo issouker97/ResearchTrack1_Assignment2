@@ -1,5 +1,16 @@
 #! /usr/bin/env python
+"""
+.. module:: wall_follow_service
+	:platform: Unix
+	:synopsis: Python module for the wall_follow_service
 
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+This is a Python script that implements a wall follower behavior using laser scan data.
+The robot navigates in an environment with walls and adjusts its movement to follow the contours of the walls.
+       
+"""
 import rospy
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
@@ -28,6 +39,14 @@ state_dict_ = {
 
 
 def wall_follower_switch(req):
+    """
+    Service callback function to switch the wall follower on or off.
+    This function is a service callback that handles the switching on or off of the wall follower behavior.
+    It takes a request message 'req' as input.
+    It updates the global variable 'active_' based on the value of 'req.data'.
+    It returns a response message indicating the success of the switch operation.
+    
+    """
     global active_
     active_ = req.data
     res = SetBoolResponse()
@@ -37,6 +56,14 @@ def wall_follower_switch(req):
 
 
 def clbk_laser(msg):
+    """
+    Callback function for the laser scan subscriber.
+    This is a callback function for laser scan subscriber.
+    It receives a LaserScan message 'msg' as input.
+    It extracts the ranges from the laser scan message and assigns them to the 'regions_' dictionary, representing different regions of the robot's surroundings.
+    It then calls the 'take_action()' function to perform appropriate actions based on the current regions.
+    
+    """
     global regions_
     regions_ = {
         'right':  min(min(msg.ranges[0:143]), 10),
@@ -50,6 +77,14 @@ def clbk_laser(msg):
 
 
 def change_state(state):
+     """
+    Function to change the state of the wall follower.
+     This function changes the state of the wall follower behavior.
+     It takes the new state as input.
+     It updates the global variable 'state_' with the new state.
+     If the state has changed, it prints a message indicating the current state.
+    
+    """
     global state_, state_dict_
     if state is not state_:
         print ('Wall follower - [%s] - %s' % (state, state_dict_[state]))
@@ -57,6 +92,14 @@ def change_state(state):
 
 
 def take_action():
+    """
+    Function to take action based on the laser scan regions.
+     This function determines the action to be taken based on the current regions of the laser scan.
+     It calculates various distance thresholds ('d0' and 'd') to define different cases.
+     Based on the values of the regions, it selects the appropriate case and changes the state using the 'change_state()' function.
+     The function prints the state description for debugging purposes.
+    
+    """
     global regions_
     regions = regions_
     msg = Twist()
@@ -97,6 +140,13 @@ def take_action():
 
 
 def find_wall():
+    """
+    Function to control the robot's movement to find the wall.
+     This function generates a 'Twist' message to control the robot's movement to find the wall.
+     It sets a linear velocity 'msg.linear.x' to 0.2 and an angular velocity 'msg.angular.z' to -0.3, causing the robot to move forward while slightly turning to the left.
+     It returns the generated 'Twist' message.
+    
+    """
     msg = Twist()
     msg.linear.x = 0.2
     msg.angular.z = -0.3
@@ -104,12 +154,26 @@ def find_wall():
 
 
 def turn_left():
+    """
+    Function to control the robot's movement to turn left.
+     This function generates a 'Twist' message to control the robot's movement to turn left.
+     It sets an angular velocity 'msg.angular.z' to 0.3, causing the robot to rotate in place to the left.
+     It returns the generated 'Twist' message.
+    
+    """
     msg = Twist()
     msg.angular.z = 0.3
     return msg
 
 
 def follow_the_wall():
+    """
+    Function to control the robot's movement to follow the wall.
+     This function generates a 'Twist' message to control the robot's movement to follow the wall.
+     It sets a linear velocity 'msg.linear.x' to 0.5, causing the robot to move forward at a moderate speed.
+     It returns the generated 'Twist' message.
+    
+    """
     global regions_
 
     msg = Twist()
@@ -118,6 +182,10 @@ def follow_the_wall():
 
 
 def main():
+     """
+      This is the main function
+    
+    """
     global pub_, active_
 
     rospy.init_node('reading_laser')
