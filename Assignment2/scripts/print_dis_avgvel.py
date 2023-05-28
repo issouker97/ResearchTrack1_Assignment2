@@ -32,14 +32,13 @@ from colorama import Fore, Back, Style
 class PrintInfo:
     def __init__(self):
 	 """
-    This function makes a new PrintInfo object. The object has three things:
--  A number that tells how often to print the information.
+    
+         This function makes a new PrintInfo object. The object has three things:
+         A number that tells how often to print the information.
+         A number that tells when the information was last printed.
+         A thing that listens to messages about the position and speed of the robot and does something with them..
 
--  A number that tells when the information was last printed.
-
--  A thing that listens to messages about the position and speed of the robot and does something with them..
-
-    """
+         """
         # Get the publish frequency parameter
         self.freq = rospy.get_param("frequency")
 
@@ -54,7 +53,7 @@ class PrintInfo:
         This function defines a method called posvel_callback that takes two parameters: self and msg. 
         The method is used as a callback function for the subscriber object that listens to the topic /posxy_velxy. 
   
-         """
+        """
         # Compute time period in milliseconds
         period = int((1.0 / self.freq) * 1000)
         
@@ -90,13 +89,13 @@ class PrintInfo:
 
 def main():
 	
- """
+  """
   This code defines a function called main that tries to suppress the timestamps from the log messages, 
   initializes the node with the name print_dis_avgvel, 
   creates an object of the PrintInfo class that subscribes to a topic and prints the distance and speed information of the robot at a given frequency, and waits for messages.
   The code also calls the main function if the file is being run directly.
   
-    """
+  """
    
 	
     # Suppress the timestamps from the log messages
