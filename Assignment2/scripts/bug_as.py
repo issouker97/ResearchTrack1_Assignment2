@@ -1,5 +1,41 @@
 #! /usr/bin/env python
+"""
+.. module:: bug_as
+	:platform: Unix
+	:synopsis: Python module for the bug_as
 
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+This code is a ROS program that implements the bug0 algorithm for planning a path to a goal while avoiding obstacles.
+It uses a laser scan sensor and an odometry sensor to get the information about the environment and the robot's pose.
+It also uses two services to control the robot's motion: go to point and wall follower.
+It also defines an action server that takes a goal as an input and publishes feedback and result messages
+    
+---
+
+Global Variables:
+srv_client_go_to_point_: the service client for the go to point service
+
+srv_client_wall_follower_: the service client for the wall follower service
+
+yaw_: the yaw angle of the robot
+
+yaw_error_allowed_: the allowed error in yaw angle
+
+position_: the position of the robot
+
+pose_: the pose of the robot
+
+desired_position_: the desired position of the robot
+
+regions_: the regions of the laser scan
+
+state_desc_: the list of strings for describing the state of the robot
+
+state_: the state of the robot
+       
+"""
 import rospy
 from geometry_msgs.msg import Point, Pose, Twist
 from sensor_msgs.msg import LaserScan
@@ -31,6 +67,11 @@ state_ = 0
 
 
 def clbk_odom(msg):
+    """
+    This is the callback function for the odometry subscriber. It updates the global variables for the position, pose and yaw of the robot using the odometry message. 
+    It also converts the quaternion orientation to euler angles using the transformations library
+    
+    """
     global position_, yaw_, pose_
 
     # position
@@ -48,6 +89,14 @@ def clbk_odom(msg):
 
 
 def clbk_laser(msg):
+     """
+    This is the callback function for the laser scan subscriber. 
+    It updates the global variable for the regions of the laser scan using the laser scan message.
+    It divides the laser scan into five regions: right, fright, front, fleft and left. 
+    It also takes the minimum distance in each region and caps it at 10 meters
+
+    
+    """
     global regions_
     regions_ = {
         'right':  min(min(msg.ranges[0:143]), 10),
@@ -59,6 +108,12 @@ def clbk_laser(msg):
 
 
 def change_state(state):
+    """
+ This is the function to change the state of the robot and call the appropriate services. It updates the global variable for the state of the robot and logs a message with the state description. 
+ It also calls the go to point service and the wall follower service with true or false depending on the state
+
+    
+    """
     global state_, state_desc_
     global srv_client_wall_follower_, srv_client_go_to_point_
     state_ = state
@@ -76,11 +131,22 @@ def change_state(state):
 
 
 def normalize_angle(angle):
+    """
+ This is the function to normalize an angle to be within [-pi, pi]. 
+ It checks if the absolute value of the angle is greater than pi, and if so, it subtracts or adds 2*pi depending on the sign of the angle. 
+ It then returns the normalized angle
+    
+    """
     if(math.fabs(angle) > math.pi):
         angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
     return angle
     
 def done():
+     """
+     This is the function to stop the robot when it reaches its goal or cancels its action.
+     It creates a twist message and sets the linear and angular velocities to zero. 
+     It then publishes the twist message to the cmd_vel topic
+  """
     twist_msg = Twist()
     twist_msg.linear.x = 0
     twist_msg.angular.z = 0
@@ -88,6 +154,13 @@ def done():
     
     
 def planning(goal):
+     """
+    This is the function to implement the planning algorithm using bug0 and ROS actions. 
+    It takes a goal as an argument and changes the state of the robot accordingly. 
+    It also publishes feedback and result messages to the action server. 
+    It checks if the robot has reached the goal, encountered an obstacle, or received a preemption request. 
+    It uses the go to point and wall follower services to control the robot's motion.
+  """
     global regions_, position_, desired_position_, state_, yaw_, yaw_error_allowed_
     global srv_client_go_to_point_, srv_client_wall_follower_, act_s, pose_
     change_state(0)
@@ -157,6 +230,12 @@ def planning(goal):
     
 
 def main():
+    """
+    This is the main function that runs the program. 
+    It initializes the ROS node, sets the desired position parameters, creates the subscribers, publisher, service clients and action server.
+    It also calls the planning function and sleeps at a rate of 20 Hz
+  """
+    
     time.sleep(2)
     global regions_, position_, desired_position_, state_, yaw_, yaw_error_allowed_
     global srv_client_go_to_point_, srv_client_wall_follower_, act_s, pub
