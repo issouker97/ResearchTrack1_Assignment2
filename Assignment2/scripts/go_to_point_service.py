@@ -53,8 +53,7 @@ pub = None
 
 def go_to_point_switch(req):
     """
-   This is a service callback function that handles the activation/deactivation of the go-to-point behavior.
-    
+    This is a service callback function that handles the activation/deactivation of the go-to-point behavior.
     """
     global active_
     active_ = req.data
@@ -68,7 +67,7 @@ def go_to_point_switch(req):
 
 def clbk_odom(msg):
     """
-   This is a callback function that updates the robot's position and orientation based on the odometry data.
+    This is a callback function that updates the robot's position and orientation based on the odometry data.
     
     """
     global position_
@@ -89,7 +88,7 @@ def clbk_odom(msg):
 
 def change_state(state):
     """
-   This is a function that changes the state of the robot's behavior
+    This is a function that changes the state of the robot's behavior
     
     """
     global state_
@@ -99,7 +98,7 @@ def change_state(state):
 
 def normalize_angle(angle):
     """
-   This is a function that normalizes an angle to the range [-pi, pi].
+    This is a function that normalizes an angle to the range [-pi, pi].
     
     """
     if(math.fabs(angle) > math.pi):
@@ -108,8 +107,8 @@ def normalize_angle(angle):
 
 
 def fix_yaw(des_pos):
-      """
-   This is a function that adjusts the robot's yaw (orientation) to face the desired position.
+    """
+    This is a function that adjusts the robot's yaw (orientation) to face the desired position.
     
     """
     global yaw_, pub, yaw_precision_2_, state_
@@ -135,8 +134,8 @@ def fix_yaw(des_pos):
 
 
 def go_straight_ahead(des_pos):
-      """
-   This is a function that moves the robot straight towards the desired position while maintaining the correct orientation.
+    """
+    This is a function that moves the robot straight towards the desired position while maintaining the correct orientation.
     
     """
     global yaw_, pub, yaw_precision_, state_
@@ -164,8 +163,8 @@ def go_straight_ahead(des_pos):
 
 
 def done():
-     """
-   This is a function that stops the robot by publishing a zero velocity command.
+    """
+    This is a function that stops the robot by publishing a zero velocity command.
     
     """
     twist_msg = Twist()
@@ -175,8 +174,8 @@ def done():
                 
 
 def main():
-     """
-   This is the main function
+    """
+    This is the main function
     
     """
     global pub, active_
