@@ -78,13 +78,13 @@ def clbk_laser(msg):
 
 def change_state(state):
      """
-    Function to change the state of the wall follower.
+     Function to change the state of the wall follower.
      This function changes the state of the wall follower behavior.
      It takes the new state as input.
      It updates the global variable 'state_' with the new state.
      If the state has changed, it prints a message indicating the current state.
     
-    """
+     """
     global state_, state_dict_
     if state is not state_:
         print ('Wall follower - [%s] - %s' % (state, state_dict_[state]))
@@ -92,14 +92,14 @@ def change_state(state):
 
 
 def take_action():
-    """
-    Function to take action based on the laser scan regions.
+     """
+     Function to take action based on the laser scan regions.
      This function determines the action to be taken based on the current regions of the laser scan.
      It calculates various distance thresholds ('d0' and 'd') to define different cases.
      Based on the values of the regions, it selects the appropriate case and changes the state using the 'change_state()' function.
      The function prints the state description for debugging purposes.
     
-    """
+     """
     global regions_
     regions = regions_
     msg = Twist()
@@ -142,9 +142,9 @@ def take_action():
 def find_wall():
     """
     Function to control the robot's movement to find the wall.
-     This function generates a 'Twist' message to control the robot's movement to find the wall.
-     It sets a linear velocity 'msg.linear.x' to 0.2 and an angular velocity 'msg.angular.z' to -0.3, causing the robot to move forward while slightly turning to the left.
-     It returns the generated 'Twist' message.
+    This function generates a 'Twist' message to control the robot's movement to find the wall.
+    It sets a linear velocity 'msg.linear.x' to 0.2 and an angular velocity 'msg.angular.z' to -0.3, causing the robot to move forward while slightly turning to the left.
+    It returns the generated 'Twist' message.
     
     """
     msg = Twist()
@@ -156,9 +156,9 @@ def find_wall():
 def turn_left():
     """
     Function to control the robot's movement to turn left.
-     This function generates a 'Twist' message to control the robot's movement to turn left.
-     It sets an angular velocity 'msg.angular.z' to 0.3, causing the robot to rotate in place to the left.
-     It returns the generated 'Twist' message.
+    This function generates a 'Twist' message to control the robot's movement to turn left.
+    It sets an angular velocity 'msg.angular.z' to 0.3, causing the robot to rotate in place to the left.
+    It returns the generated 'Twist' message.
     
     """
     msg = Twist()
@@ -169,9 +169,9 @@ def turn_left():
 def follow_the_wall():
     """
     Function to control the robot's movement to follow the wall.
-     This function generates a 'Twist' message to control the robot's movement to follow the wall.
-     It sets a linear velocity 'msg.linear.x' to 0.5, causing the robot to move forward at a moderate speed.
-     It returns the generated 'Twist' message.
+    This function generates a 'Twist' message to control the robot's movement to follow the wall.
+    It sets a linear velocity 'msg.linear.x' to 0.5, causing the robot to move forward at a moderate speed.
+    It returns the generated 'Twist' message.
     
     """
     global regions_
@@ -182,8 +182,8 @@ def follow_the_wall():
 
 
 def main():
-     """
-      This is the main function
+    """
+    This is the main function
     
     """
     global pub_, active_
