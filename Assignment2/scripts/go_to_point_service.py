@@ -54,7 +54,11 @@ pub = None
 
 def go_to_point_switch(req):
     """
+<<<<<<< HEAD
     This is a service callback function that handles the activation and deactivation of the go-to-point behavior.
+=======
+    This is a service callback function that handles the activation/deactivation of the go-to-point behavior.
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     """
     global active_
     active_ = req.data
@@ -68,7 +72,11 @@ def go_to_point_switch(req):
 
 def clbk_odom(msg):
     """
+<<<<<<< HEAD
     This is a callback function that updates the robot position and orientation based on the odometry data.
+=======
+    This is a callback function that updates the robot's position and orientation based on the odometry data.
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     
     """
     global position_
@@ -89,7 +97,11 @@ def clbk_odom(msg):
 
 def change_state(state):
     """
+<<<<<<< HEAD
     This is a function that changes the state of the robot behavior
+=======
+    This is a function that changes the state of the robot's behavior
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     
     """
     global state_
@@ -99,7 +111,11 @@ def change_state(state):
 
 def normalize_angle(angle):
     """
+<<<<<<< HEAD
     This is a function that normalizes an angle to the range -pi to  pi.
+=======
+    This is a function that normalizes an angle to the range [-pi, pi].
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     
     """
     if(math.fabs(angle) > math.pi):
@@ -109,7 +125,11 @@ def normalize_angle(angle):
 
 def fix_yaw(des_pos):
     """
+<<<<<<< HEAD
     This is a function that adjusts the robot yaw orientation to face the desired position.
+=======
+    This is a function that adjusts the robot's yaw (orientation) to face the desired position.
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     
     """
     global yaw_, pub, yaw_precision_2_, state_

@@ -24,7 +24,12 @@ Usage:
 
 Global Variables:
     pub
+<<<<<<< HEAD
             
+=======
+     it is used to publish custom messages of type Posxy_velxy to the topic /posxy_velxy
+       
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
 """
 
 
@@ -67,7 +72,11 @@ def publisher(msg):
 
 def action_client():
     """
+<<<<<<< HEAD
     This function creates an action client that communicates with an action server called '/reaching_goal' that provides a service of planning a path for the robot to reach a target pose.
+=======
+    This function creates an action client that communicates with an action server called /reaching_goal that provides a service of planning a path for the robot to reach a target pose.
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     The function asks the user to input the x and y coordinates of the target pose or type c to cancel the goal. 
     If the user enters c, the function cancels the current goal. Otherwise, the function sends the goal to the action server and waits for feedback. 
 

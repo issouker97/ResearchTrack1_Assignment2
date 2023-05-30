@@ -47,13 +47,22 @@ import assignment_2_2022.msg  # Import the package message library
 class Service:
     def __init__(self):
         
+<<<<<<< HEAD
         """
         *This function can send and receive goals*
+=======
+         """
+         *This function can send and receive goals*
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     
              Args:
                  self: Message that contains the status of the goal.
  
+<<<<<<< HEAD
         """
+=======
+          """
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
         
         # Initialize the counters for goals reached and cancelled
         self.goal_cancelled = 0
@@ -74,7 +83,11 @@ class Service:
                  self
                  msg: is the taken message 
                
+<<<<<<< HEAD
         """
+=======
+          """
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
         # Get the status of the result from the msg
         status = msg.status.status
 
@@ -87,7 +100,10 @@ class Service:
             self.goal_reached += 1
 
     def data(self, req):
+<<<<<<< HEAD
         
+=======
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
         """
         *Used to return an object of type goal_rcResponse*
      
@@ -95,10 +111,17 @@ class Service:
                 self
                 req 
             
+<<<<<<< HEAD
 	        Returns:
                 Service goal_rcResponse.
                
         """
+=======
+	    Returns:
+                Service goal_rcResponse.
+               
+           """
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
         # Return the response containing the current values of goal_cancelled and goal_reached
         return goal_rcResponse(self.goal_reached, self.goal_cancelled)
 
@@ -113,8 +136,12 @@ def main():
         - Create an instance of the Service class.  
     
         - Keeps the node activated by calling `rospy.spin()`.
+<<<<<<< HEAD
     
     """
+=======
+     """
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     # Initialize the node
     rospy.init_node('goal_service')
 

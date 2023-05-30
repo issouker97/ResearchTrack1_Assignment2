@@ -31,6 +31,7 @@ from colorama import Fore, Back, Style
 
 class PrintInfo:
     def __init__(self):
+<<<<<<< HEAD
 	    
           """
           This function makes a new PrintInfo object. The object has three things:
@@ -45,6 +46,21 @@ class PrintInfo:
 
           # Last time the info was printed
           self.printed = 0
+=======
+	 """
+    
+         This function makes a new PrintInfo object. The object has three things:
+         A number that tells how often to print the information.
+         A number that tells when the information was last printed.
+         A thing that listens to messages about the position and speed of the robot and does something with them..
+
+         """
+        # Get the publish frequency parameter
+        self.freq = rospy.get_param("frequency")
+
+        # Last time the info was printed
+        self.printed = 0
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
 
           # Subscriber to the position and velocity topic
           self.sub_pos = rospy.Subscriber("/posxy_velxy", Posxy_velxy, self.posvel_callback)
@@ -91,12 +107,20 @@ class PrintInfo:
 
 def main():
 	
+<<<<<<< HEAD
     """
     This code defines a function called main that tries to suppress the timestamps from the log messages, 
     initializes the node with the name "print_dis_avgvel" and creates an object of the PrintInfo class that subscribes to a topic and prints the distance and speed information of the robot at a given frequency, and waits for messages.
     The code also calls the main function if the file is being run directly.
+=======
+  """
+  This code defines a function called main that tries to suppress the timestamps from the log messages, 
+  initializes the node with the name print_dis_avgvel, 
+  creates an object of the PrintInfo class that subscribes to a topic and prints the distance and speed information of the robot at a given frequency, and waits for messages.
+  The code also calls the main function if the file is being run directly.
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
   
-    """
+  """
    
     # Suppress the timestamps from the log messages
     #rospy.set_param('/rosconsole/formatter/time', 'none')	

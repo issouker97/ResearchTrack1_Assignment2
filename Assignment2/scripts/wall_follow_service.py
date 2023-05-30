@@ -77,14 +77,23 @@ def clbk_laser(msg):
 
 
 def change_state(state):
+<<<<<<< HEAD
     """
     Function to change the state of the wall follower.
     This function changes the state of the wall follower behavior.
     It takes the new state as input.
     It updates the global variable 'state_' with the new state.
     If the state has changed, it prints a message indicating the current state.
+=======
+     """
+     Function to change the state of the wall follower.
+     This function changes the state of the wall follower behavior.
+     It takes the new state as input.
+     It updates the global variable 'state_' with the new state.
+     If the state has changed, it prints a message indicating the current state.
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     
-    """
+     """
     global state_, state_dict_
     if state is not state_:
         print ('Wall follower - [%s] - %s' % (state, state_dict_[state]))
@@ -92,6 +101,7 @@ def change_state(state):
 
 
 def take_action():
+<<<<<<< HEAD
     """
     Function to take action based on the laser scan regions.
     This function determines the action to be taken based on the current regions of the laser scan.
@@ -101,6 +111,16 @@ def take_action():
     
     """
     
+=======
+     """
+     Function to take action based on the laser scan regions.
+     This function determines the action to be taken based on the current regions of the laser scan.
+     It calculates various distance thresholds ('d0' and 'd') to define different cases.
+     Based on the values of the regions, it selects the appropriate case and changes the state using the 'change_state()' function.
+     The function prints the state description for debugging purposes.
+    
+     """
+>>>>>>> 58c13d211aa93d119d7e7ddde6085761d4af2be7
     global regions_
     regions = regions_
     msg = Twist()
