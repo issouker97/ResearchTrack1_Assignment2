@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceaction__user" kind="namespace" language="Python">
+    <compoundname>action_user</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceaction__user_1aa6b2cf01a4d3ad36754b7c966990ce54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def action_user.publisher</definition>
+        <argsstring>(msg)</argsstring>
+        <name>publisher</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>this function takes an odometry message as input and publishes a custom message that contains only the x and y componenets of the position
+and velocity of the rebot</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" line="47" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" bodystart="47" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceaction__user_1a358b6d83d08866eedb3217d5ce0393f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def action_user.action_client</definition>
+        <argsstring>()</argsstring>
+        <name>action_client</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function creates an action client that communicates with an action server called &apos;/reaching_goal&apos; that provides a service of planning a path for the robot to reach a target pose.
+The function asks the user to input the x and y coordinates of the target pose or type c to cancel the goal. 
+If the user enters c, the function cancels the current goal. Otherwise, the function sends the goal to the action server and waits for feedback. </verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" line="68" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" bodystart="68" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceaction__user_1aa0308e93c5f5d8cb29d23d767d0a11dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def action_user.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function creates a node called (action_user) that publishes and subscribes to custom messages that contain the position and velocity of the robot. 
+It also creates an action client that sends goals to an action server.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" line="107" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" bodystart="107" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: action_user
+    :platform: Unix
+    :synopsis: Python module for the action_user
+
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+An action client node that permits the user to set or cancel a target (x, y) and also publishes the robot&apos;s position and velocity
+as a custom message (x, y, vel x, vel y), by using the values published on the subject /odom..
+
+Functions:
+    - `publisher()`: Use to get both position and velocity informations
+
+    - `action_client()`: Get the keyboard inputs and also create the goal to send to the server.
+  
+Usage:
+    - The user is able to set a parameter to send a target position or can also cancel an existing target with pressing c.
+    
+    - User interface prompts to get the input of the user for executing the function above.
+    
+---
+
+Global Variables:
+    pub</verbatim> </para>
+    </detaileddescription>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

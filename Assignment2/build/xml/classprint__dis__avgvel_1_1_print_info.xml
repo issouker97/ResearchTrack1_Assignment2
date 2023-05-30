@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classprint__dis__avgvel_1_1_print_info" kind="class" language="Python" prot="public">
+    <compoundname>print_dis_avgvel::PrintInfo</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classprint__dis__avgvel_1_1_print_info_1a1b8e7636c2363642a25e5c6fd23b08f5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>print_dis_avgvel.PrintInfo::freq</definition>
+        <argsstring></argsstring>
+        <name>freq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="44" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classprint__dis__avgvel_1_1_print_info_1a31a8cec8fb99454a6a3f2f3413e04e5b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>print_dis_avgvel.PrintInfo::printed</definition>
+        <argsstring></argsstring>
+        <name>printed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="47" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classprint__dis__avgvel_1_1_print_info_1a71cfaa86a1557de3a50656622b594681" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>print_dis_avgvel.PrintInfo::sub_pos</definition>
+        <argsstring></argsstring>
+        <name>sub_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="50" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classprint__dis__avgvel_1_1_print_info_1a7ac393582b17226caedcabdf677328a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def print_dis_avgvel.PrintInfo.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function makes a new PrintInfo object. The object has three things:
+A number that tells how often to print the information.
+A number that tells when the information was last printed.
+A thing that listens to messages about the position and speed of the robot and does something with them..</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="33" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="33" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classprint__dis__avgvel_1_1_print_info_1aa5de20f63699a8dcffefa04faf294b7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def print_dis_avgvel.PrintInfo.posvel_callback</definition>
+        <argsstring>(self, msg)</argsstring>
+        <name>posvel_callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function defines a method called posvel_callback that takes two parameters: self and msg. 
+The method is used as a callback function for the subscriber object that listens to the topic /posxy_velxy. </verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="52" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="52" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="32" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="32" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classprint__dis__avgvel_1_1_print_info_1a7ac393582b17226caedcabdf677328a6" prot="public" virt="non-virtual"><scope>print_dis_avgvel::PrintInfo</scope><name>__init__</name></member>
+      <member refid="classprint__dis__avgvel_1_1_print_info_1a1b8e7636c2363642a25e5c6fd23b08f5" prot="public" virt="non-virtual"><scope>print_dis_avgvel::PrintInfo</scope><name>freq</name></member>
+      <member refid="classprint__dis__avgvel_1_1_print_info_1aa5de20f63699a8dcffefa04faf294b7a" prot="public" virt="non-virtual"><scope>print_dis_avgvel::PrintInfo</scope><name>posvel_callback</name></member>
+      <member refid="classprint__dis__avgvel_1_1_print_info_1a31a8cec8fb99454a6a3f2f3413e04e5b" prot="public" virt="non-virtual"><scope>print_dis_avgvel::PrintInfo</scope><name>printed</name></member>
+      <member refid="classprint__dis__avgvel_1_1_print_info_1a71cfaa86a1557de3a50656622b594681" prot="public" virt="non-virtual"><scope>print_dis_avgvel::PrintInfo</scope><name>sub_pos</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="goal__service_8py" kind="file" language="Python">
+    <compoundname>goal_service.py</compoundname>
+    <innerclass refid="classgoal__service_1_1_service" prot="public">goal_service::Service</innerclass>
+    <innernamespace refid="namespacegoal__service">goal_service</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacegoal__service" refkind="compound"><highlight class="comment">#!<sp/>/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="3"><highlight class="stringliteral">..<sp/>module::<sp/>goal_service</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>for<sp/>the<sp/>goal_service</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>KERMADJ<sp/>YOUNES<sp/>s5447235@studenti.unige.it</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">This<sp/>service<sp/>node<sp/>that<sp/>when<sp/>we<sp/>activate,<sp/>it<sp/>will<sp/>print<sp/>the<sp/>number<sp/>of<sp/>target<sp/>reached<sp/>and<sp/>cancelled.</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral">Subscribes<sp/>to:</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral">-<sp/>**/reaching_goal/result**:<sp/>Use<sp/>to<sp/>receive<sp/>status<sp/>updates<sp/>on<sp/>goals.</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral">Service:</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral">-<sp/>**goal_service**:<sp/>Service<sp/>use<sp/>to<sp/>take<sp/>the<sp/>number<sp/>of<sp/>reached<sp/>goals<sp/>and<sp/>canceled<sp/>goals.</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral">Functions:</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>`init(self)`:<sp/>This<sp/>function<sp/>makes<sp/>a<sp/>class<sp/>that<sp/>can<sp/>send<sp/>and<sp/>receive<sp/>goals.<sp/>It<sp/>counts<sp/>how<sp/>many<sp/>goals<sp/>were<sp/>done<sp/>or<sp/>stopped.<sp/>It<sp/>makes<sp/>a<sp/>service<sp/>and<sp/>a<sp/>subscriber<sp/>for<sp/>this.</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>`result_callback(self,<sp/>msg)`:<sp/>This<sp/>function<sp/>is<sp/>a<sp/>callback<sp/>method<sp/>that<sp/>handles<sp/>the<sp/>messages<sp/>from<sp/>the<sp/>result<sp/>topic.<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>`data(self,<sp/>req)`:<sp/>This<sp/>function<sp/>defines<sp/>a<sp/>method<sp/>called<sp/>data<sp/>that<sp/>takes<sp/>two<sp/>parameters:<sp/>self<sp/>and<sp/>req.<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral">Usage:</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>The<sp/>`result_callback`<sp/>It<sp/>checks<sp/>the<sp/>status<sp/>of<sp/>the<sp/>result<sp/>and<sp/>updates<sp/>the<sp/>counters<sp/>for<sp/>goals<sp/>cancelled<sp/>or<sp/>reached<sp/>accordingly</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>The<sp/>`data`<sp/>is<sp/>used<sp/>to<sp/>return<sp/>an<sp/>object<sp/>of<sp/>type<sp/>goal_rcResponse<sp/>that<sp/>contains<sp/>the<sp/>values<sp/>of<sp/>two<sp/>attributes<sp/>of<sp/>self:<sp/>goal_reached<sp/>and<sp/>goal_cancelled.</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral">Variables:</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>count_canceled<sp/>:<sp/>int</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Count<sp/>the<sp/>amount<sp/>of<sp/>canceled<sp/>goals.</highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>count_reached<sp/>:<sp/>int</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Count<sp/><sp/>the<sp/>amount<sp/>of<sp/>reached<sp/>goals.</highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy<sp/><sp/></highlight><highlight class="comment">#<sp/>Import<sp/>the<sp/>ROS<sp/>python<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>assignment_2_2022.srv<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>goal_rc,<sp/>goal_rcResponse<sp/><sp/></highlight><highlight class="comment">#<sp/>Import<sp/>the<sp/>service<sp/>and<sp/>service<sp/>response<sp/>messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>actionlib<sp/><sp/></highlight><highlight class="comment">#<sp/>Import<sp/>the<sp/>actionlib<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>actionlib.msg<sp/><sp/></highlight><highlight class="comment">#<sp/>Import<sp/>the<sp/>actionlib<sp/>message<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>assignment_2_2022.msg<sp/><sp/></highlight><highlight class="comment">#<sp/>Import<sp/>the<sp/>package<sp/>message<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classgoal__service_1_1_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgoal__service_1_1_service" kindref="compound">Service</ref>:</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classgoal__service_1_1_service_1ab25cdc41073494ac820b729d6e993cb9" kindref="member">__init__</ref>(self):</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*This<sp/>function<sp/>can<sp/>send<sp/>and<sp/>receive<sp/>goals*</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self:<sp/>Message<sp/>that<sp/>contains<sp/>the<sp/>status<sp/>of<sp/>the<sp/>goal.</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initialize<sp/>the<sp/>counters<sp/>for<sp/>goals<sp/>reached<sp/>and<sp/>cancelled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classgoal__service_1_1_service_1ab5f499c2011a06d5dd1383830627cc35" kindref="member">goal_cancelled</ref><sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classgoal__service_1_1_service_1ad62ca2598214784daf19ce57fa16e82c" kindref="member">goal_reached</ref><sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Create<sp/>the<sp/>service</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classgoal__service_1_1_service_1a4e0e600d2f7fba7e58c040e513295ba3" kindref="member">srv</ref><sp/>=<sp/>rospy.Service(</highlight><highlight class="stringliteral">&apos;goal_service&apos;</highlight><highlight class="normal">,<sp/>goal_rc,<sp/>self.<ref refid="classgoal__service_1_1_service_1ae76ede0ebdc21343422b2fd088f6879f" kindref="member">data</ref>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Subscribe<sp/>to<sp/>the<sp/>result<sp/>topic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classgoal__service_1_1_service_1a1cc12558b2896873b73028440bf79dc6" kindref="member">sub_result</ref><sp/>=<sp/>rospy.Subscriber(</highlight><highlight class="stringliteral">&apos;/reaching_goal/result&apos;</highlight><highlight class="normal">,<sp/>assignment_2_2022.msg.PlanningActionResult,<sp/>self.<ref refid="classgoal__service_1_1_service_1ad3a54197e15815aa114146411399fe16" kindref="member">result_callback</ref>)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classgoal__service_1_1_service_1ad3a54197e15815aa114146411399fe16" kindref="member">result_callback</ref>(self,<sp/>msg):</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*This<sp/>function<sp/>is<sp/>use<sp/>for<sp/>checking<sp/>the<sp/>status<sp/>of<sp/>the<sp/>results*</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg:<sp/>is<sp/>the<sp/>taken<sp/>message<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>the<sp/>status<sp/>of<sp/>the<sp/>result<sp/>from<sp/>the<sp/>msg</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status<sp/>=<sp/>msg.status.status</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Goal<sp/>cancelled<sp/>(status<sp/>=<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>2:</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classgoal__service_1_1_service_1ab5f499c2011a06d5dd1383830627cc35" kindref="member">goal_cancelled</ref><sp/>+=<sp/>1</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Goal<sp/>reached<sp/>(status<sp/>=<sp/>3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>3:</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classgoal__service_1_1_service_1ad62ca2598214784daf19ce57fa16e82c" kindref="member">goal_reached</ref><sp/>+=<sp/>1</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classgoal__service_1_1_service_1ae76ede0ebdc21343422b2fd088f6879f" kindref="member">data</ref>(self,<sp/>req):</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*Used<sp/>to<sp/>return<sp/>an<sp/>object<sp/>of<sp/>type<sp/>goal_rcResponse*</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>req<sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Returns:</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Service<sp/>goal_rcResponse.</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Return<sp/>the<sp/>response<sp/>containing<sp/>the<sp/>current<sp/>values<sp/>of<sp/>goal_cancelled<sp/>and<sp/>goal_reached</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>goal_rcResponse(self.<ref refid="classgoal__service_1_1_service_1ad62ca2598214784daf19ce57fa16e82c" kindref="member">goal_reached</ref>,<sp/>self.<ref refid="classgoal__service_1_1_service_1ab5f499c2011a06d5dd1383830627cc35" kindref="member">goal_cancelled</ref>)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacegoal__service_1a9e3f4c641a4af5d17cdaae8584bcf722" kindref="member">main</ref>():</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="109"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>This<sp/>is<sp/>the<sp/>Main<sp/>entry<sp/>point<sp/>of<sp/>our<sp/>node.</highlight></codeline>
+<codeline lineno="110"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="111"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>Start<sp/>to<sp/>intialize<sp/>the<sp/>ROS<sp/>node<sp/>with<sp/>the<sp/>name<sp/>&quot;goal_service&quot;.</highlight></codeline>
+<codeline lineno="112"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>Create<sp/>an<sp/>instance<sp/>of<sp/>the<sp/>Service<sp/>class.<sp/><sp/></highlight></codeline>
+<codeline lineno="114"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>Keeps<sp/>the<sp/>node<sp/>activated<sp/>by<sp/>calling<sp/>`rospy.spin()`.</highlight></codeline>
+<codeline lineno="116"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initialize<sp/>the<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;goal_service&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Create<sp/>an<sp/>instance<sp/>of<sp/>the<sp/>Service<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>goal_service<sp/>=<sp/><ref refid="classgoal__service_1_1_service" kindref="compound">Service</ref>()</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Wait<sp/>for<sp/>messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacegoal__service_1a9e3f4c641a4af5d17cdaae8584bcf722" kindref="member">main</ref>()</highlight></codeline>
+    </programlisting>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/goal_service.py"/>
+  </compounddef>
+</doxygen>

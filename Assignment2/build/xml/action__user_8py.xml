@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="action__user_8py" kind="file" language="Python">
+    <compoundname>action_user.py</compoundname>
+    <innernamespace refid="namespaceaction__user">action_user</innernamespace>
+    <innernamespace refid="namespacestd__srvs_1_1srv">std_srvs::srv</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceaction__user" refkind="compound"><highlight class="comment">#!/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="3"><highlight class="stringliteral">..<sp/>module::<sp/>action_user</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>for<sp/>the<sp/>action_user</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>KERMADJ<sp/>YOUNES<sp/>s5447235@studenti.unige.it</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">An<sp/>action<sp/>client<sp/>node<sp/>that<sp/>permits<sp/>the<sp/>user<sp/>to<sp/>set<sp/>or<sp/>cancel<sp/>a<sp/>target<sp/>(x,<sp/>y)<sp/>and<sp/>also<sp/>publishes<sp/>the<sp/>robot&apos;s<sp/>position<sp/>and<sp/>velocity</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral">as<sp/>a<sp/>custom<sp/>message<sp/>(x,<sp/>y,<sp/>vel<sp/>x,<sp/>vel<sp/>y),<sp/>by<sp/>using<sp/>the<sp/>values<sp/>published<sp/>on<sp/>the<sp/>subject<sp/>/odom..</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral">Functions:</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>`publisher()`:<sp/>Use<sp/>to<sp/>get<sp/>both<sp/>position<sp/>and<sp/>velocity<sp/>informations</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>`action_client()`:<sp/>Get<sp/>the<sp/>keyboard<sp/>inputs<sp/>and<sp/>also<sp/>create<sp/>the<sp/>goal<sp/>to<sp/>send<sp/>to<sp/>the<sp/>server.</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral">Usage:</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>The<sp/>user<sp/>is<sp/>able<sp/>to<sp/>set<sp/>a<sp/>parameter<sp/>to<sp/>send<sp/>a<sp/>target<sp/>position<sp/>or<sp/>can<sp/>also<sp/>cancel<sp/>an<sp/>existing<sp/>target<sp/>with<sp/>pressing<sp/>c.</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>User<sp/>interface<sp/>prompts<sp/>to<sp/>get<sp/>the<sp/>input<sp/>of<sp/>the<sp/>user<sp/>for<sp/>executing<sp/>the<sp/>function<sp/>above.</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral">---</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral">Global<sp/>Variables:</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>pub</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>actionlib</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>actionlib.msg</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>assignment_2_2022.msg</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespacestd__srvs_1_1srv" kindref="compound">std_srvs.srv</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>select</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>nav_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Odometry</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>geometry_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Point,<sp/>Pose,<sp/>Twist</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>assignment_2_2022.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Posxy_velxy</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>colorama<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Fore,<sp/>Style</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>colorama<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>init</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">init()</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">#<sp/>callback<sp/>function<sp/>for<sp/>the<sp/>subscriber</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceaction__user_1aa6b2cf01a4d3ad36754b7c966990ce54" kindref="member">publisher</ref>(msg):</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>this<sp/>function<sp/>takes<sp/>an<sp/>odometry<sp/>message<sp/>as<sp/>input<sp/>and<sp/>publishes<sp/>a<sp/>custom<sp/>message<sp/>that<sp/>contains<sp/>only<sp/>the<sp/>x<sp/>and<sp/>y<sp/>componenets<sp/>of<sp/>the<sp/>position</highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>and<sp/>velocity<sp/>of<sp/>the<sp/>rebot</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>pub</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>get<sp/>the<sp/>position<sp/>information</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>pos<sp/>=<sp/>msg.pose.pose.position</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>get<sp/>the<sp/>velocity<sp/>information</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>velocity<sp/>=<sp/>msg.twist.twist.linear</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>custom<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>posxy_velxy<sp/>=<sp/>Posxy_velxy()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>assign<sp/>the<sp/>parameters<sp/>of<sp/>the<sp/>custom<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>posxy_velxy.msg_pos_x<sp/>=<sp/>pos.x</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>posxy_velxy.msg_pos_y<sp/>=<sp/>pos.y</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>posxy_velxy.msg_vel_x<sp/>=<sp/>velocity.x</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>posxy_velxy.msg_vel_y<sp/>=<sp/>velocity.y</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>publish<sp/>the<sp/>custom<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>pub.publish(posxy_velxy)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceaction__user_1a358b6d83d08866eedb3217d5ce0393f7" kindref="member">action_client</ref>():</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>This<sp/>function<sp/>creates<sp/>an<sp/>action<sp/>client<sp/>that<sp/>communicates<sp/>with<sp/>an<sp/>action<sp/>server<sp/>called<sp/>&apos;/reaching_goal&apos;<sp/>that<sp/>provides<sp/>a<sp/>service<sp/>of<sp/>planning<sp/>a<sp/>path<sp/>for<sp/>the<sp/>robot<sp/>to<sp/>reach<sp/>a<sp/>target<sp/>pose.</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>function<sp/>asks<sp/>the<sp/>user<sp/>to<sp/>input<sp/>the<sp/>x<sp/>and<sp/>y<sp/>coordinates<sp/>of<sp/>the<sp/>target<sp/>pose<sp/>or<sp/>type<sp/>c<sp/>to<sp/>cancel<sp/>the<sp/>goal.<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>If<sp/>the<sp/>user<sp/>enters<sp/>c,<sp/>the<sp/>function<sp/>cancels<sp/>the<sp/>current<sp/>goal.<sp/>Otherwise,<sp/>the<sp/>function<sp/>sends<sp/>the<sp/>goal<sp/>to<sp/>the<sp/>action<sp/>server<sp/>and<sp/>waits<sp/>for<sp/>feedback.<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>create<sp/>the<sp/>action<sp/>client</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>action_client<sp/>=<sp/>actionlib.SimpleActionClient(</highlight><highlight class="stringliteral">&apos;/reaching_goal&apos;</highlight><highlight class="normal">,<sp/>assignment_2_2022.msg.PlanningAction)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>wait<sp/>for<sp/>the<sp/>server<sp/>to<sp/>be<sp/>started</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>action_client.wait_for_server()</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>status_goal<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>rospy.is_shutdown():</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>the<sp/>keyboard<sp/>inputs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(Fore.GREEN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Please<sp/>enter<sp/>position<sp/>of<sp/>the<sp/>target<sp/>or<sp/>type<sp/>c<sp/>to<sp/>cancel<sp/>it<sp/>&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x_pos_input<sp/>=<sp/>input(Fore.MAGENTA<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;X<sp/>position<sp/>of<sp/>target:<sp/>&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y_pos_input<sp/>=<sp/>input(Fore.MAGENTA<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Y<sp/>position<sp/>of<sp/>target:<sp/>&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>user<sp/>entered<sp/>&apos;c&apos;<sp/>cancel<sp/>the<sp/>goal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>x_pos_input<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">or</highlight><highlight class="normal"><sp/>y_pos_input<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Cancel<sp/>the<sp/>goal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>action_client.cancel_goal()</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status_goal<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Convert<sp/>numbers<sp/>from<sp/>string<sp/>to<sp/>float</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x_pos_send<sp/>=<sp/>float(x_pos_input)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y_pos_send<sp/>=<sp/>float(y_pos_input)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Create<sp/>the<sp/>goal<sp/>to<sp/>send<sp/>to<sp/>the<sp/>server</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>goal<sp/>=<sp/>assignment_2_2022.msg.PlanningGoal()</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>goal.target_pose.pose.position.x<sp/>=<sp/>x_pos_send</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>goal.target_pose.pose.position.y<sp/>=<sp/>y_pos_send</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Send<sp/>the<sp/>goal<sp/>to<sp/>the<sp/>action<sp/>server</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>action_client.send_goal(goal)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status_goal<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceaction__user_1aa0308e93c5f5d8cb29d23d767d0a11dd" kindref="member">main</ref>():</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="109"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>This<sp/>function<sp/>creates<sp/>a<sp/>node<sp/>called<sp/>(action_user)<sp/>that<sp/>publishes<sp/>and<sp/>subscribes<sp/>to<sp/>custom<sp/>messages<sp/>that<sp/>contain<sp/>the<sp/>position<sp/>and<sp/>velocity<sp/>of<sp/>the<sp/>robot.<sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>It<sp/>also<sp/>creates<sp/>an<sp/>action<sp/>client<sp/>that<sp/>sends<sp/>goals<sp/>to<sp/>an<sp/>action<sp/>server.</highlight></codeline>
+<codeline lineno="111"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>initialize<sp/>the<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;action_user&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>global<sp/>publisher</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>pub</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>publisher:<sp/>send<sp/>a<sp/>message<sp/>which<sp/>contains<sp/>two<sp/>parameters<sp/>(velocity<sp/>and<sp/>position)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>pub<sp/>=<sp/>rospy.Publisher(</highlight><highlight class="stringliteral">&quot;/posxy_velxy&quot;</highlight><highlight class="normal">,<sp/>Posxy_velxy,<sp/>queue_size=1)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>subscriber:<sp/>get<sp/>from<sp/>&quot;Odom&quot;<sp/>two<sp/>parameters<sp/>(velocity<sp/>and<sp/>position)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>sub_from_Odom<sp/>=<sp/>rospy.Subscriber(</highlight><highlight class="stringliteral">&quot;/odom&quot;</highlight><highlight class="normal">,<sp/>Odometry,<sp/>publisher)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>call<sp/>the<sp/>function<sp/>action_client</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceaction__user_1a358b6d83d08866eedb3217d5ce0393f7" kindref="member">action_client</ref>()</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceaction__user_1aa0308e93c5f5d8cb29d23d767d0a11dd" kindref="member">main</ref>()</highlight></codeline>
+    </programlisting>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/action_user.py"/>
+  </compounddef>
+</doxygen>

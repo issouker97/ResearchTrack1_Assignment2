@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacego__to__point__service" kind="namespace" language="Python">
+    <compoundname>go_to_point_service</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacego__to__point__service_1abe657bd9603dc3f58a1956668813514e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool go_to_point_service.active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="26" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a7687850055557a27f335be20e994c023" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>go_to_point_service.position_</definition>
+        <argsstring></argsstring>
+        <name>position_</name>
+        <initializer>=  Point()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="29" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1ac0d754b5218554bf0aa6507e08262aa4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int go_to_point_service.yaw_</definition>
+        <argsstring></argsstring>
+        <name>yaw_</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="30" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a7302709bb82adca46efc76daaa821aa7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int go_to_point_service.state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="32" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a17e47e580dbbf300a91d42e81bb91856" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>go_to_point_service.desired_position_</definition>
+        <argsstring></argsstring>
+        <name>desired_position_</name>
+        <initializer>=  Point()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="34" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a2e836af955467ad8d94a57e154023d75" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>go_to_point_service.x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="35" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1af174820ca4271dd1a4a3db2cb16c5582" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>go_to_point_service.y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="36" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a1e0590d4e8fc1de7369864255776b1ac" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>go_to_point_service.z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="37" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a2464d5355e9bb593fa3ab79354a574f1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int go_to_point_service.yaw_precision_</definition>
+        <argsstring></argsstring>
+        <name>yaw_precision_</name>
+        <initializer>=  math.pi / 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="39" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a53e290ebfa498679a2421356d35ccd0e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int go_to_point_service.yaw_precision_2_</definition>
+        <argsstring></argsstring>
+        <name>yaw_precision_2_</name>
+        <initializer>=  math.pi / 90</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="40" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1af5f23f6949a7c8902af969b86d59f0ff" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float go_to_point_service.dist_precision_</definition>
+        <argsstring></argsstring>
+        <name>dist_precision_</name>
+        <initializer>=  0.3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="41" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1aa4dcb2c51349c6a486168f6bc2cdb094" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float go_to_point_service.kp_a</definition>
+        <argsstring></argsstring>
+        <name>kp_a</name>
+        <initializer>=  3.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="43" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a1dbf3b8830618a71226b15c005c0b5e5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float go_to_point_service.kp_d</definition>
+        <argsstring></argsstring>
+        <name>kp_d</name>
+        <initializer>=  0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="44" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1ae65f765636456df7afcf93a22b51038e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float go_to_point_service.ub_a</definition>
+        <argsstring></argsstring>
+        <name>ub_a</name>
+        <initializer>=  0.6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="45" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a54d632450f4291a2ff664550f68af893" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float go_to_point_service.lb_a</definition>
+        <argsstring></argsstring>
+        <name>lb_a</name>
+        <initializer>=  -0.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="46" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1a6f1913e3ce0b294a3cc1a519079137b9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float go_to_point_service.ub_d</definition>
+        <argsstring></argsstring>
+        <name>ub_d</name>
+        <initializer>=  0.6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="47" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacego__to__point__service_1ae04aed6a94addf0dd452dfe17235b8fc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>go_to_point_service.pub</definition>
+        <argsstring></argsstring>
+        <name>pub</name>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="50" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacego__to__point__service_1acf2f8e880355dd31df1f330f7f10b7f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.go_to_point_switch</definition>
+        <argsstring>(req)</argsstring>
+        <name>go_to_point_switch</name>
+        <param>
+          <type>req</type>
+          <defname>req</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a service callback function that handles the activation and deactivation of the go-to-point behavior.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="55" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="55" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1adcbe48e090034144d76fea10c6537ac9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.clbk_odom</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbk_odom</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a callback function that updates the robot position and orientation based on the odometry data.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="69" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="69" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1abb8fd97f7fbaccc6b4f1f80b258c7977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.change_state</definition>
+        <argsstring>(state)</argsstring>
+        <name>change_state</name>
+        <param>
+          <type>state</type>
+          <defname>state</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a function that changes the state of the robot behavior</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="90" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="90" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1a5cb3225f30d2cdefd5cda701f13e1f9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.normalize_angle</definition>
+        <argsstring>(angle)</argsstring>
+        <name>normalize_angle</name>
+        <param>
+          <type>angle</type>
+          <defname>angle</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a function that normalizes an angle to the range -pi to  pi.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="100" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="100" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1a60e4565e2e2ebffba35774ee78838e77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.fix_yaw</definition>
+        <argsstring>(des_pos)</argsstring>
+        <name>fix_yaw</name>
+        <param>
+          <type>des_pos</type>
+          <defname>des_pos</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a function that adjusts the robot yaw orientation to face the desired position.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="110" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="110" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1a531455abf876b239c51ab236f7d459b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.go_straight_ahead</definition>
+        <argsstring>(des_pos)</argsstring>
+        <name>go_straight_ahead</name>
+        <param>
+          <type>des_pos</type>
+          <defname>des_pos</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a function that moves the robot straight towards the desired position while maintaining the correct orientation.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="137" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="137" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1a8fd364cf9483fb92353279ddd13116d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.done</definition>
+        <argsstring>()</argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is a function that stops the robot by publishing a zero velocity command.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="166" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="166" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacego__to__point__service_1aff61ce18210c0b3ae85d5a24810631ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def go_to_point_service.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the main function</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="177" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" bodystart="177" bodyend="210"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: go_to_point_service
+:platform: Unix
+:synopsis: Python module for the go_to_point_service
+
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+This code is a ROS (Robot Operating System) node that implements a simple go-to-point behavior for a robot. 
+It uses laser scan data and odometry information to navigate the robot to a desired position.</verbatim> </para>
+    </detaileddescription>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/go_to_point_service.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

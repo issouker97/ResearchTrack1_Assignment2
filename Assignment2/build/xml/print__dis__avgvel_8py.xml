@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="print__dis__avgvel_8py" kind="file" language="Python">
+    <compoundname>print_dis_avgvel.py</compoundname>
+    <innerclass refid="classprint__dis__avgvel_1_1_print_info" prot="public">print_dis_avgvel::PrintInfo</innerclass>
+    <innernamespace refid="namespaceprint__dis__avgvel">print_dis_avgvel</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceprint__dis__avgvel" refkind="compound"><highlight class="comment">#!<sp/>/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="3"><highlight class="stringliteral">..<sp/>module::<sp/>print_dis_avgvel</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>for<sp/>the<sp/>print_dis_avgvel</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>KERMADJ<sp/>YOUNES<sp/>s5447235@studenti.unige.it</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">Python<sp/>module<sp/>for<sp/>the<sp/>Subscriber<sp/>node<sp/>(print_dis_avgvel).</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral">This<sp/>node<sp/>for<sp/>printing<sp/>both<sp/>the<sp/>distance<sp/>that<sp/>separates<sp/>the<sp/>robot<sp/>from<sp/>the<sp/>target<sp/>and<sp/>its<sp/>average<sp/>speed.</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral">In<sp/>addition,<sp/>It<sp/>subscribes<sp/>to<sp/>the<sp/>robot<sp/>position<sp/>and<sp/>speed,<sp/>this<sp/>will<sp/>be<sp/>through<sp/>using<sp/>a<sp/>custom<sp/>message.</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral">A<sp/>parameter<sp/>will<sp/>be<sp/>used<sp/>to<sp/>set<sp/>the<sp/>frequency<sp/>of<sp/>publishing<sp/>the<sp/>data</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral">Subscribes<sp/>to:</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral">-<sp/>**/posxy_velxy**<sp/>(message<sp/>type:<sp/>`Posxy_velxy`)</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral">---</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>math</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>time</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>assignment_2_2022.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Posxy_velxy</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>colorama<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>init</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">init()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>colorama<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Fore,<sp/>Back,<sp/>Style</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classprint__dis__avgvel_1_1_print_info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classprint__dis__avgvel_1_1_print_info" kindref="compound">PrintInfo</ref>:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classprint__dis__avgvel_1_1_print_info_1a7ac393582b17226caedcabdf677328a6" kindref="member">__init__</ref>(self):</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>makes<sp/>a<sp/>new<sp/>PrintInfo<sp/>object.<sp/>The<sp/>object<sp/>has<sp/>three<sp/>things:</highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>number<sp/>that<sp/>tells<sp/>how<sp/>often<sp/>to<sp/>print<sp/>the<sp/>information.</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>number<sp/>that<sp/>tells<sp/>when<sp/>the<sp/>information<sp/>was<sp/>last<sp/>printed.</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>thing<sp/>that<sp/>listens<sp/>to<sp/>messages<sp/>about<sp/>the<sp/>position<sp/>and<sp/>speed<sp/>of<sp/>the<sp/>robot<sp/>and<sp/>does<sp/>something<sp/>with<sp/>them..</highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>the<sp/>publish<sp/>frequency<sp/>parameter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classprint__dis__avgvel_1_1_print_info_1a1b8e7636c2363642a25e5c6fd23b08f5" kindref="member">freq</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&quot;frequency&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Last<sp/>time<sp/>the<sp/>info<sp/>was<sp/>printed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classprint__dis__avgvel_1_1_print_info_1a31a8cec8fb99454a6a3f2f3413e04e5b" kindref="member">printed</ref><sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Subscriber<sp/>to<sp/>the<sp/>position<sp/>and<sp/>velocity<sp/>topic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classprint__dis__avgvel_1_1_print_info_1a71cfaa86a1557de3a50656622b594681" kindref="member">sub_pos</ref><sp/>=<sp/>rospy.Subscriber(</highlight><highlight class="stringliteral">&quot;/posxy_velxy&quot;</highlight><highlight class="normal">,<sp/>Posxy_velxy,<sp/>self.<ref refid="classprint__dis__avgvel_1_1_print_info_1aa5de20f63699a8dcffefa04faf294b7a" kindref="member">posvel_callback</ref>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classprint__dis__avgvel_1_1_print_info_1aa5de20f63699a8dcffefa04faf294b7a" kindref="member">posvel_callback</ref>(self,<sp/>msg):</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>defines<sp/>a<sp/>method<sp/>called<sp/>posvel_callback<sp/>that<sp/>takes<sp/>two<sp/>parameters:<sp/>self<sp/>and<sp/>msg.<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>method<sp/>is<sp/>used<sp/>as<sp/>a<sp/>callback<sp/>function<sp/>for<sp/>the<sp/>subscriber<sp/>object<sp/>that<sp/>listens<sp/>to<sp/>the<sp/>topic<sp/>/posxy_velxy.<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Compute<sp/>time<sp/>period<sp/>in<sp/>milliseconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>period<sp/>=<sp/>(1.0/self.<ref refid="classprint__dis__avgvel_1_1_print_info_1a1b8e7636c2363642a25e5c6fd23b08f5" kindref="member">freq</ref>)<sp/>*<sp/>1000</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>current<sp/>time<sp/>in<sp/>milliseconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>curr_time<sp/>=<sp/>time.time()<sp/>*<sp/>1000</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Check<sp/>if<sp/>the<sp/>current<sp/>time<sp/>minus<sp/>the<sp/>last<sp/>printed<sp/>time<sp/>is<sp/>greater<sp/>than<sp/>the<sp/>period</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>curr_time<sp/>-<sp/>self.<ref refid="classprint__dis__avgvel_1_1_print_info_1a31a8cec8fb99454a6a3f2f3413e04e5b" kindref="member">printed</ref><sp/>&gt;<sp/>period:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>the<sp/>desired<sp/>position<sp/>from<sp/>ROS<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target_x<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&quot;des_pos_x&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target_y<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&quot;des_pos_y&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>the<sp/>actual<sp/>position<sp/>of<sp/>the<sp/>robot<sp/>from<sp/>the<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>robot_x<sp/>=<sp/>msg.msg_pos_x</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>robot_y<sp/>=<sp/>msg.msg_pos_y</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Compute<sp/>the<sp/>distance<sp/>between<sp/>the<sp/>desired<sp/>and<sp/>actual<sp/>positions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distance<sp/>=<sp/>round(math.dist([target_x,<sp/>target_y],<sp/>[robot_x,<sp/>robot_y]),2)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Get<sp/>the<sp/>actual<sp/>velocity<sp/>of<sp/>the<sp/>robot<sp/>from<sp/>the<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel_x<sp/>=<sp/>msg.msg_vel_x</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel_y<sp/>=<sp/>msg.msg_vel_y<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Compute<sp/>the<sp/>average<sp/>speed<sp/>using<sp/>the<sp/>velocity<sp/>components<sp/>from<sp/>the<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>average_speed<sp/>=<sp/>round(math.sqrt(vel_x**2<sp/>+<sp/>vel_y**2),2)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Print<sp/>the<sp/>distance<sp/>and<sp/>speed<sp/>information</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.loginfo(Fore.GREEN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Distance<sp/>to<sp/>target:<sp/>%s<sp/>[m]&quot;</highlight><highlight class="normal">,<sp/>distance)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.loginfo(Fore.MAGENTA<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Robot<sp/>average<sp/>speed:<sp/>%s<sp/>[m/s]&quot;</highlight><highlight class="normal">,<sp/>average_speed)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Update<sp/>the<sp/>last<sp/>printed<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classprint__dis__avgvel_1_1_print_info_1a31a8cec8fb99454a6a3f2f3413e04e5b" kindref="member">printed</ref><sp/>=<sp/>curr_time</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceprint__dis__avgvel_1ad034c9189e235f58a65d3f6fe9074193" kindref="member">main</ref>():</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>This<sp/>code<sp/>defines<sp/>a<sp/>function<sp/>called<sp/>main<sp/>that<sp/>tries<sp/>to<sp/>suppress<sp/>the<sp/>timestamps<sp/>from<sp/>the<sp/>log<sp/>messages,<sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>initializes<sp/>the<sp/>node<sp/>with<sp/>the<sp/>name<sp/>&quot;print_dis_avgvel&quot;<sp/>and<sp/>creates<sp/>an<sp/>object<sp/>of<sp/>the<sp/>PrintInfo<sp/>class<sp/>that<sp/>subscribes<sp/>to<sp/>a<sp/>topic<sp/>and<sp/>prints<sp/>the<sp/>distance<sp/>and<sp/>speed<sp/>information<sp/>of<sp/>the<sp/>robot<sp/>at<sp/>a<sp/>given<sp/>frequency,<sp/>and<sp/>waits<sp/>for<sp/>messages.</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>code<sp/>also<sp/>calls<sp/>the<sp/>main<sp/>function<sp/>if<sp/>the<sp/>file<sp/>is<sp/>being<sp/>run<sp/>directly.</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Suppress<sp/>the<sp/>timestamps<sp/>from<sp/>the<sp/>log<sp/>messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#rospy.set_param(&apos;/rosconsole/formatter/time&apos;,<sp/>&apos;none&apos;)<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initialize<sp/>the<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;print_dis_avgvel&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Create<sp/>an<sp/>instance<sp/>of<sp/>the<sp/>PrintInfo<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>print_dis_avgvel<sp/>=<sp/><ref refid="classprint__dis__avgvel_1_1_print_info" kindref="compound">PrintInfo</ref>()</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Wait<sp/>for<sp/>messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceprint__dis__avgvel_1ad034c9189e235f58a65d3f6fe9074193" kindref="member">main</ref>()</highlight></codeline>
+    </programlisting>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py"/>
+  </compounddef>
+</doxygen>

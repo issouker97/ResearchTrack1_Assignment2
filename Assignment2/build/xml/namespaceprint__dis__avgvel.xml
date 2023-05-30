@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceprint__dis__avgvel" kind="namespace" language="Python">
+    <compoundname>print_dis_avgvel</compoundname>
+    <innerclass refid="classprint__dis__avgvel_1_1_print_info" prot="public">print_dis_avgvel::PrintInfo</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceprint__dis__avgvel_1ad034c9189e235f58a65d3f6fe9074193" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def print_dis_avgvel.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This code defines a function called main that tries to suppress the timestamps from the log messages, 
+initializes the node with the name &quot;print_dis_avgvel&quot; and creates an object of the PrintInfo class that subscribes to a topic and prints the distance and speed information of the robot at a given frequency, and waits for messages.
+The code also calls the main function if the file is being run directly.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="92" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" bodystart="92" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: print_dis_avgvel
+    :platform: Unix
+    :synopsis: Python module for the print_dis_avgvel
+
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+Python module for the Subscriber node (print_dis_avgvel).
+
+This node for printing both the distance that separates the robot from the target and its average speed.
+In addition, It subscribes to the robot position and speed, this will be through using a custom message.
+A parameter will be used to set the frequency of publishing the data
+
+Subscribes to:
+
+- **/posxy_velxy** (message type: `Posxy_velxy`)
+
+---</verbatim> </para>
+    </detaileddescription>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/print_dis_avgvel.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

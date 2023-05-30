@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacegoal__service" kind="namespace" language="Python">
+    <compoundname>goal_service</compoundname>
+    <innerclass refid="classgoal__service_1_1_service" prot="public">goal_service::Service</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegoal__service_1a9e3f4c641a4af5d17cdaae8584bcf722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def goal_service.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the Main entry point of our node.
+
+    - Start to intialize the ROS node with the name &quot;goal_service&quot;.
+
+    - Create an instance of the Service class.  
+
+    - Keeps the node activated by calling `rospy.spin()`.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/goal_service.py" line="106" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/goal_service.py" bodystart="106" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: goal_service
+:platform: Unix
+:synopsis: Python module for the goal_service
+
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+This service node that when we activate, it will print the number of target reached and cancelled.
+
+Subscribes to:
+
+- **/reaching_goal/result**: Use to receive status updates on goals.
+
+Service:
+
+- **goal_service**: Service use to take the number of reached goals and canceled goals.
+
+Functions:
+
+- `init(self)`: This function makes a class that can send and receive goals. It counts how many goals were done or stopped. It makes a service and a subscriber for this.
+ 
+- `result_callback(self, msg)`: This function is a callback method that handles the messages from the result topic. 
+   
+- `data(self, req)`: This function defines a method called data that takes two parameters: self and req. 
+      
+Usage:
+   
+- The `result_callback` It checks the status of the result and updates the counters for goals cancelled or reached accordingly
+   
+- The `data` is used to return an object of type goal_rcResponse that contains the values of two attributes of self: goal_reached and goal_cancelled.
+
+Variables:
+count_canceled : int
+    Count the amount of canceled goals.
+    
+count_reached : int
+    Count  the amount of reached goals.
+</verbatim> </para>
+    </detaileddescription>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/goal_service.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

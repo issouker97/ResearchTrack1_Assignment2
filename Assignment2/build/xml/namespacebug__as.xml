@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacebug__as" kind="namespace" language="Python">
+    <compoundname>bug_as</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacebug__as_1aae11f9e7d34d042e3b75f990708f30b7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.srv_client_go_to_point_</definition>
+        <argsstring></argsstring>
+        <name>srv_client_go_to_point_</name>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="61" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1aaf82618e313f873dcde442872ce41dca" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.srv_client_wall_follower_</definition>
+        <argsstring></argsstring>
+        <name>srv_client_wall_follower_</name>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="62" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1afc76d5b7eaf5bbc9d952a1424713adc5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bug_as.yaw_</definition>
+        <argsstring></argsstring>
+        <name>yaw_</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="63" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1a27d35e323287c67a62f9e49aa85c81c0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bug_as.yaw_error_allowed_</definition>
+        <argsstring></argsstring>
+        <name>yaw_error_allowed_</name>
+        <initializer>=  5 * (math.pi / 180)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="64" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1a499f87dbcadef3fdd8bf1813ff254980" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.position_</definition>
+        <argsstring></argsstring>
+        <name>position_</name>
+        <initializer>=  Point()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="65" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1a19167a19063724b9c82eb1ec62a73430" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.pose_</definition>
+        <argsstring></argsstring>
+        <name>pose_</name>
+        <initializer>=  Pose()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="66" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1af85cbf56a31a686cd9c0ca7a925976c6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.desired_position_</definition>
+        <argsstring></argsstring>
+        <name>desired_position_</name>
+        <initializer>=  Point()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="67" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1a5df7001712850734cef001cf0be212c8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="68" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1a4c3231dd163d5f4503c5afde05d774e3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bug_as.regions_</definition>
+        <argsstring></argsstring>
+        <name>regions_</name>
+        <initializer>=  None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="69" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1ac5e332e5e1e9dec2ab24b79910c923b5" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list bug_as.state_desc_</definition>
+        <argsstring></argsstring>
+        <name>state_desc_</name>
+        <initializer>=  [&apos;Go to point&apos;, &apos;wall following&apos;, &apos;<ref refid="namespacebug__as_1a2fe7a2b363215b1c6d054e563ff80d46" kindref="member">done</ref>&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="70" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacebug__as_1abb23e110e8f093c82fe0f79ca0cd399d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bug_as.state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="71" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacebug__as_1ab60ee3a18f82901f764c228cab7715a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.clbk_odom</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbk_odom</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the callback function for the odometry subscriber. It updates the global variables for the position, pose and yaw of the robot using the odometry message. 
+It also converts the quaternion orientation to euler angles using the transformations library</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="79" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="79" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacebug__as_1a4119d98608166ee0b88e091319a1bc36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.clbk_laser</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbk_laser</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the callback function for the laser scan subscriber. 
+It updates the global variable for the regions of the laser scan using the laser scan message.
+It divides the laser scan into five regions: right, fright, front, fleft and left. 
+It also takes the minimum distance in each region and caps it at 10 meters</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="101" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="101" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacebug__as_1a3c7d2081c97d59613bd86cecc92c95aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.change_state</definition>
+        <argsstring>(state)</argsstring>
+        <name>change_state</name>
+        <param>
+          <type>state</type>
+          <defname>state</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the function to change the state of the robot and call the appropriate services. It updates the global variable for the state of the robot and logs a message with the state description. 
+It also calls the go to point service and the wall follower service with true or false depending on the state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="119" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="119" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacebug__as_1a4cb91dd1a836fdcc1f433b72f9b6ef40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.normalize_angle</definition>
+        <argsstring>(angle)</argsstring>
+        <name>normalize_angle</name>
+        <param>
+          <type>angle</type>
+          <defname>angle</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the function to normalize an angle to be within [-pi, pi]. 
+It checks if the absolute value of the angle is greater than pi, and if so, it subtracts or adds 2*pi depending on the sign of the angle. 
+It then returns the normalized angle</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="141" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="141" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacebug__as_1a2fe7a2b363215b1c6d054e563ff80d46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.done</definition>
+        <argsstring>()</argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the function to stop the robot when it reaches its goal or cancels its action.
+It creates a twist message and sets the linear and angular velocities to zero. 
+It then publishes the twist message to the cmd_vel topic</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="152" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="152" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacebug__as_1a94385d0a19f35bc8faab7ea1bb12324a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.planning</definition>
+        <argsstring>(goal)</argsstring>
+        <name>planning</name>
+        <param>
+          <type>goal</type>
+          <defname>goal</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the function to implement the planning algorithm using bug0 and ROS actions. 
+It takes a goal as an argument and changes the state of the robot accordingly. 
+It also publishes feedback and result messages to the action server. 
+It checks if the robot has reached the goal, encountered an obstacle, or received a preemption request. 
+It uses the go to point and wall follower services to control the robot&apos;s motion.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="165" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="165" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacebug__as_1a9b1d3f586f8d4174c9c2ba2a074a35ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def bug_as.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This is the main function that runs the program. 
+It initializes the ROS node, sets the desired position parameters, creates the subscribers, publisher, service clients and action server.
+It also calls the planning function and sleeps at a rate of 20 Hz</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="242" column="1" bodyfile="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" bodystart="242" bodyend="276"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: bug_as
+:platform: Unix
+:synopsis: Python module for the bug_as
+
+.. moduleauthor:: KERMADJ YOUNES s5447235@studenti.unige.it
+
+
+This code is a ROS program that implements the bug0 algorithm for planning a path to a goal while avoiding obstacles.
+It uses a laser scan sensor and an odometry sensor to get the information about the environment and the robot&apos;s pose.
+It also uses two services to control the robot&apos;s motion: go to point and wall follower.
+It also defines an action server that takes a goal as an input and publishes feedback and result messages
+
+---
+
+Global Variables:
+srv_client_go_to_point
+                the service client for the go to point service
+
+srv_client_wall_follower
+                the service client for the wall follower service
+
+yaw
+                the yaw angle of the robot
+
+yaw_error_allowed
+                the allowed error in yaw angle
+
+position
+                the position of the robot
+
+pose
+                the pose of the robot
+
+desired_position
+                the desired position of the robot
+
+regions
+                the regions of the laser scan
+
+state_desc
+                the list of strings for describing the state of the robot
+
+state
+                the state of the robot</verbatim> </para>
+    </detaileddescription>
+    <location file="/root/workspace2/src/ResearchTrack1_Assignment2/Assignment2/scripts/bug_as.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
