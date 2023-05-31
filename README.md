@@ -130,3 +130,9 @@ The package shows how to handle with action clients, services, custom messages w
 2- Making an obvious sign, for instance a red flag at the target location would be a good idea in Gazebo environment.
 
 3- Building an algorithm to illustrate the path done by the robot to reach the target and optimize its trajectory.
+
+
+-------------------------------------
+## Sphinx Documentation
+Here is the link to access to the documentation of this assignment: 
+https://issouker97.github.io/ResearchTrack1_Assignment2/
